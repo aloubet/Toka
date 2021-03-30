@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Crear Nueva Persona Física";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-6 form-horizontal">
+            @using (Html.BeginForm("Guardar", "PersonasFisicas", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <br />
+                <label>Nombre:</label><input type="text" class="form-control" name="Nombre" placeholder="Nombre" required autofocus>
+                <br />
+                <label>Apellido Paterno:</label><input type="text" class="form-control" name="ApellidoPat" placeholder="Apellido Paterno" required autofocus>
+                <br />
+                <label>Apellido Materno:</label><input type="text" class="form-control" name="ApellidoMat" placeholder="Apellido Materno" required autofocus>
+                <br />
+                <label>Dirección:</label><input type="text" class="form-control" name="Direccion" placeholder="Direccion" required autofocus>
+                <br />
+                <label>Nacionalidad:</label>
+                <select name="Nacionalidad" class="form-control" required>
+                    <option selected value="">Selecciones una nacionalidad</option>
+                    <option value="Mexicana">Mexicana</option>
+                    <option value="Estadounidense">Estadounidense</option>
+                    <option value="Canadiense">Canadiense</option>
+                </select>
+                <br />
+                <button class="btn btn-primary" type="submit">
+                    Guardar
+                </button>
+                <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Index", "PersonasFisicas")'">
+                    Regresar
+                </button>
+            }
+            </div>
+    </div>
+</div>
+
+

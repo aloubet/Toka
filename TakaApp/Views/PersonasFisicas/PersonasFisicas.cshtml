@@ -1,0 +1,67 @@
+﻿@model TakaApp.Models.PersonasFisicas
+
+<h4>PersonasFisicas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="View">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApellidoPat" class="control-label"></label>
+                <input asp-for="ApellidoPat" class="form-control" />
+                <span asp-validation-for="ApellidoPat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApellidoMat" class="control-label"></label>
+                <input asp-for="ApellidoMat" class="form-control" />
+                <span asp-validation-for="ApellidoMat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Direccion" class="control-label"></label>
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nacionalidad" class="control-label"></label>
+                <input asp-for="Nacionalidad" class="form-control" />
+                <span asp-validation-for="Nacionalidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaCreacion" class="control-label"></label>
+                <input asp-for="FechaCreacion" class="form-control" />
+                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsuarioCreador" class="control-label"></label>
+                <input asp-for="UsuarioCreador" class="form-control" />
+                <span asp-validation-for="UsuarioCreador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaModificacion" class="control-label"></label>
+                <input asp-for="FechaModificacion" class="form-control" />
+                <span asp-validation-for="FechaModificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsuarioModifica" class="control-label"></label>
+                <input asp-for="UsuarioModifica" class="form-control" />
+                <span asp-validation-for="UsuarioModifica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

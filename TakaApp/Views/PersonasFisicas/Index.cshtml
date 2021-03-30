@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Personas Fisicas";
+}
+
+@if(ViewData["Eliminar"] != null) {
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>El registro se elimino con exito.</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    <p><button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Nuevo", "PersonasFisicas")'">Nuevo</button></p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-success">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Direccion</th>
+                    <th>Nacionalidad</th>
+                    <th>Fecha Creacion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.Nombre</td>
+                    <td>@d.ApellidoPat</td>
+                    <td>@d.ApellidoMat</td>
+                    <td>@d.Direccion</td>
+                    <td>@d.Nacionalidad</td>
+                    <td>@d.FechaCreacion</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Editar", "PersonasFisicas", new { id = d.Id })'">Editar</button>
+                        <button type="button" name="eliminar" class="btn btn-danger" onclick="if (validar()) location.href='@Url.Action("Eliminar", "PersonasFisicas", new { id = d.Id })'">Eliminar</button>
+                    </td>
+                </tr>
+            }
+            @if (Model.Count == 0)
+            {
+                <tr>
+                    <td colspan="7">No se encontraron registros.</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Editar Persona Física";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-6 form-horizontal">
+            @using (Html.BeginForm("GuardarEditar", "PersonasFisicas", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <br />
+                <label>Nombre:</label><input type="text" value="@Model.Nombre" class="form-control" name="Nombre" placeholder="Nombre" required autofocus>
+                <br />
+                <label>Apellido Paterno:</label><input value="@Model.ApellidoPat" type="text" class="form-control" name="ApellidoPat" placeholder="Apellido Paterno" required autofocus>
+                <br />
+                <label>Apellido Materno:</label><input value="@Model.ApellidoMat" type="text" class="form-control" name="ApellidoMat" placeholder="Apellido Materno" required autofocus>
+                <br />
+                <label>Dirección:</label><input value="@Model.Direccion" type="text" class="form-control" name="Direccion" placeholder="Direccion" required autofocus>
+                <br />
+                <label>Nacionalidad:</label>
+                <select name="Nacionalidad" id="Nacionalidad" class="form-control" required >
+                    <option value="">Selecciones una nacionalidad</option>
+                    <option value="Mexicana">Mexicana</option>
+                    <option value="Estadounidense">Estadounidense</option>
+                    <option value="Canadiense">Canadiense</option>
+                </select>
+                <br />
+                <button class="btn btn-primary" type="submit">
+                    Guardar
+                </button>
+                <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Index", "PersonasFisicas")'">
+                    Regresar
+                </button>
+                <input type="hidden" name="Id" value="@Model.Id">
+                <input type="hidden" name="UsuarioCreador" value="@Model.UsuarioCreador">
+                <input type="hidden" name="FechaCreacion" value="@Model.FechaCreacion">
+            }
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    document.getElementById("Nacionalidad").value = "@Model.Nacionalidad";
+</script>
+
+
